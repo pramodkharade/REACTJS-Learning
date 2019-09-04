@@ -5,13 +5,20 @@ import './App.css';
 class App extends Component {
   state = {
       person:[
-        {name:'Pramod Kharade', age:31},
-        {name:'Kishor Vitekar', age:31},
-        {name:'Shital Nalawade', age:30},
+        {name:'Pramod', age:31},
+        {name:'Kishor ', age:31},
+        {name:'Shital Nalawade', age:29},
       ]
   };
   switchHandler = () =>{
     console.log('Switchhander is calling!!!');
+    this.setState({
+      person:[
+        {name:'Pramod Kharade', age:31},
+        {name:'Kishor Vitekar', age:31},
+        {name:'Shital Nalawade', age:30},
+      ]
+    });
   };
   render() {
     return (
