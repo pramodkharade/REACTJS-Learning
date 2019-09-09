@@ -3,8 +3,8 @@ const person =  (props) =>{
     return (
         <div>
             <p onClick={props.click}>
-                I am {props.name}
-                and I am { props.age} year old!. 
+                I am  {props.name}
+                  and   I am  { props.age}  year old!. 
                 {props.children}
             </p>
         </div>

@@ -10,11 +10,11 @@ class App extends Component {
         {name:'Shital Nalawade', age:29},
       ]
   };
-  switchHandler = () =>{
+  switchHandler = (newName) =>{
     console.log('Switchhander is calling!!!');
     this.setState({
       person:[
-        {name:'Pramod Kharade', age:31},
+        {name:newName, age:31},
         {name:'Kishor Vitekar', age:31},
         {name:'Shital Nalawade', age:30},
       ]
@@ -24,7 +24,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>This is react course learning</h1>
-        <button onClick={this.switchHandler}>Switch Name</button>
+        <button onClick={()=>this.switchHandler('Dnyanda!!!')}>Switch Name</button>
         <Person 
           name={this.state.person[0].name} 
           age={this.state.person[0].age} > 
@@ -32,7 +32,7 @@ class App extends Component {
         <Person 
           name={this.state.person[1].name} 
           age={this.state.person[1].age}
-          click={this.switchHandler}
+          click={this.switchHandler.bind(this,'Dnynu')}
           > My Hobbies: Racing 
           </Person>
         <Person 
