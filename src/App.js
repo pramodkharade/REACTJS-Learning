@@ -4,7 +4,7 @@ import './App.css';
 
 class App extends Component {
   state = {
-      person:[
+      persons:[
         {name:'Pramod', age:31},
         {name:'Kishor ', age:31},
         {name:'Shital Nalawade', age:29},
@@ -14,16 +14,23 @@ class App extends Component {
   switchHandler = (newName) =>{
     console.log('Switchhander is calling!!!');
     this.setState({
-      person:[
+      persons:[
         {name:newName, age:31},
         {name:'Kishor Vitekar', age:31},
         {name:'Shital Nalawade', age:30},
       ]
     });
   };
+  deletePersonHandler = (personIndex) =>{
+    //const persons = this.state.persons;
+    const persons = [...this.state.persons];
+    persons.splice(personIndex,1);
+    this.setState({persons:persons});
+
+  };
   nameChangeHandler = (event)=>{
     this.setState({
-      person:[
+      persons:[
         {name:'Dnyanda Kharade', age:31},
         {name:event.target.value, age:31},
         {name:'Shital Nalawade', age:30},
@@ -50,8 +57,8 @@ class App extends Component {
     if(this.state.showPerson){
       persons=(
         <div>
-            { this.state.persons.map(person=>{
-              return <Person name={person.name} age={person.age}></Person>
+            { this.state.persons.map((person,index)=>{
+              return <Person name={person.name} age={person.age} click={()=>this.deletePersonHandler(index)}></Person>
             })}
             
         </div>);
